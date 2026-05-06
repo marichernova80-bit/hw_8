@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.ktlint.plugin) apply false
     alias(libs.plugins.shadow) apply false
+    alias(libs.plugins.allure) apply false
 }
 
 apply {

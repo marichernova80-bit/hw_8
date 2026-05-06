@@ -31,6 +31,8 @@ sqliteJdbc = "3.45.1.0"
 uiautomator = "2.3.0"
 documentfile = "1.0.1"
 kaspresso = "1.5.3"
+allure = "2.4.0"
+allurePlugin = "4.0.1"
 
 [libraries]
 annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
@@ -71,6 +73,8 @@ sqlite-jdbc = { module = "org.xerial:sqlite-jdbc", version.ref = "sqliteJdbc" }
 uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
 documentfile = { group = "androidx.documentfile", name = "documentfile", version.ref = "documentfile" }
 kaspresso = { group = "com.kaspersky.android-components", name = "kaspresso", version.ref = "kaspresso" }
+allure-android = { group = "io.qameta.allure", name = "allure-kotlin-android", version.ref = "allure" }
+allure-junit4 = { group = "io.qameta.allure", name = "allure-kotlin-junit4", version.ref = "allure" }
 
 [plugins]
 agp = { id = "com.android.application", version.ref = "agp" }
@@ -79,3 +83,4 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktlint-plugin = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint-plugin" }
 mokkery = { id = "dev.mokkery", version.ref = "mokkery" }
 shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
+allure = { id = "io.qameta.allure", version.ref = "allurePlugin" }

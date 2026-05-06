@@ -13,6 +13,7 @@ import androidx.test.espresso.action.Tap
 import androidx.test.espresso.action.GeneralLocation
 import io.github.kakaocup.kakao.text.KButton
 
+
 fun clickLeft() = GeneralClickAction(
     Tap.SINGLE,
     GeneralLocation.CENTER_LEFT,
@@ -23,10 +24,16 @@ fun clickLeft() = GeneralClickAction(
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-class HabitBaseTests : TestCase() {
+class HabitBaseTests : TestCase()
+{
+
+
+
 
     @get:Rule
     val activityRule = ActivityTestRule(ListHabitsActivity::class.java, true, true)
+
+
 
     @Test
     fun test1_CreateHabit() = run {
@@ -81,6 +88,10 @@ class HabitBaseTests : TestCase() {
             }
             Thread.sleep(1000)
             KButton { withId(android.R.id.button1) }.click()
+        }
+
+        step("Пауза для выгрузки отчета") {
+            Thread.sleep(15000) // 15 секунд
         }
     }
 
