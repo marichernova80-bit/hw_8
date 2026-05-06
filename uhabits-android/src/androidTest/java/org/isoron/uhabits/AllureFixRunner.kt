@@ -1,17 +1,17 @@
 package org.isoron.uhabits
 
 import android.os.Bundle
+import android.util.Log
 import androidx.test.runner.AndroidJUnitRunner
 import java.io.File
 
 class AllureFixRunner : AndroidJUnitRunner() {
     override fun onCreate(arguments: Bundle) {
-        // SDK 36: пишем только во внутреннюю память
-        val allurePath = File(targetContext.filesDir, "allure-results").absolutePath
-        File(allurePath).mkdirs()
+        val allureDir = File(targetContext.getExternalFilesDir(null), "allure-results")
+        allureDir.mkdirs()
 
-        System.setProperty("allure.results.directory", allurePath)
-        // Не добавляем никаких слушателей здесь!
+        Log.e("ALLURE_PATH", allureDir.absolutePath)
+        System.setProperty("allure.results.directory", allureDir.absolutePath)
 
         super.onCreate(arguments)
     }

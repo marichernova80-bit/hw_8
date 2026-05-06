@@ -23,6 +23,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint.plugin)
     alias(libs.plugins.mokkery)
+  //  alias(libs.plugins.allure)
 }
 
 tasks.compileLint {
@@ -56,10 +57,12 @@ android {
         minSdk = 28
         targetSdk = 36
         applicationId = "org.isoron.uhabits"
-        //testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+       // testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunner = "org.isoron.uhabits.AllureFixRunner"
-        testInstrumentationRunnerArguments["useTestStorageService"] = "true"
-}
+
+
+    }
 
     signingConfigs {
         if (System.getenv("LOOP_KEY_ALIAS") != null) {
@@ -98,6 +101,7 @@ android {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
         }
     }
+
     buildFeatures.viewBinding = true
     lint.abortOnError = false
 }
@@ -147,38 +151,51 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.tracing:tracing:1.1.0")
 
-    androidTestImplementation("com.kaspersky.android-components:kaspresso-allure-support:1.5.3")
-    androidTestImplementation("io.qameta.allure:allure-kotlin-android:2.4.0")
-    androidTestImplementation("io.qameta.allure:allure-kotlin-junit4:2.4.0")
-
+    androidTestImplementation("com.kaspersky.android-components:kaspresso-allure-support:1.5.3") {
+        exclude(group = "io.qameta.allure", module = "allure-junit4")
+    }
+    androidTestImplementation(libs.allure.android)
+    androidTestImplementation(libs.allure.junit4)
 
     androidTestImplementation("androidx.test:monitor:1.6.1")
-    androidTestImplementation("androidx.test.services:test-services:1.5.0")
-
-
-}
-
-configurations.all {
-    resolutionStrategy.eachDependency {
-        if (requested.group == "io.qameta.allure") {
-            useVersion("2.4.0")
-        }
-    }
 }
 
 tasks.register<Exec>("pullAllureResults") {
     group = "verification"
-    description = "Выгружает отчеты Allure из защищенной внутренней памяти приложения"
-
-    // Этот скрипт копирует файлы из /data/user/0/... в папку проекта
-    commandLine(
-        "sh", "-c",
-        "adb shell \"run-as org.isoron.uhabits tar -c -C /data/user/0/org.isoron.uhabits/files/allure-results .\" | tar -x -v -C ./allure-results"
-    )
+    dependsOn("connectedDebugAndroidTest")
 
     doFirst {
-        val dir = file("allure-results")
-        if (!dir.exists()) dir.mkdirs()
+        val resultsDir = rootProject.layout.buildDirectory.dir("allure-results").get().asFile
+        if (resultsDir.exists()) resultsDir.deleteRecursively()
+        resultsDir.mkdirs()
     }
+
+    commandLine(
+        "adb",
+        "pull",
+        "/storage/emulated/0/Documents/allure-results/.",
+        rootProject.layout.buildDirectory.dir("allure-results").get().asFile.absolutePath
+    )
+
 }
+
+
+
+
+tasks.register<Exec>("generateAllureReport") {
+    group = "verification"
+
+    dependsOn("pullAllureResults")
+
+    commandLine(
+        "allure",
+        "generate",
+        rootProject.layout.buildDirectory.dir("allure-results").get().asFile.absolutePath,
+        "--clean",
+        "-o",
+        rootProject.layout.buildDirectory.dir("reports/allure-report").get().asFile.absolutePath
+    )
+}
+
+
 

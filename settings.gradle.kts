@@ -11,8 +11,8 @@ pluginManagement {
     }
 }
 
-include(":uhabits-android", ":uhabits-core")
 dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     @Suppress("UnstableApiUsage")
     repositories {
         google {
