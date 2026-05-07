@@ -5,16 +5,17 @@ import androidx.test.espresso.action.GeneralLocation
 import androidx.test.espresso.action.Press
 import androidx.test.espresso.action.Tap
 import androidx.test.rule.ActivityTestRule
+import com.kaspersky.kaspresso.kaspresso.Kaspresso
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import io.github.kakaocup.kakao.text.KButton
-import io.qameta.allure.kotlin.Allure
 import org.isoron.uhabits.activities.habits.list.ListHabitsActivity
 import org.junit.FixMethodOrder
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runners.MethodSorters
-import java.io.File
-import java.util.UUID
+import com.kaspersky.components.alluresupport.withForcedAllureSupport
+
+
 
 fun clickLeft() = GeneralClickAction(
     Tap.SINGLE,
@@ -25,44 +26,12 @@ fun clickLeft() = GeneralClickAction(
 )
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-class HabitBaseTests : TestCase() {
+class HabitBaseTests : TestCase(
+    kaspressoBuilder = Kaspresso.Builder.withForcedAllureSupport()
+) {
 
     @get:Rule
     val activityRule = ActivityTestRule(ListHabitsActivity::class.java, true, true)
-
-    private fun allureRun(testName: String, block: () -> Unit) {
-        val uuid = UUID.randomUUID().toString()
-        val start = System.currentTimeMillis()
-        var status = "passed"
-
-        try {
-            block()
-        } catch (t: Throwable) {
-            status = "failed"
-            throw t
-        } finally {
-            val stop = System.currentTimeMillis()
-
-            val allureDir = File("/storage/emulated/0/Documents/allure-results")
-            allureDir.mkdirs()
-
-            val json = """
-                {
-                  "uuid": "$uuid",
-                  "historyId": "$testName",
-                  "testCaseId": "$testName",
-                  "name": "$testName",
-                  "fullName": "org.isoron.uhabits.HabitBaseTests.$testName",
-                  "status": "$status",
-                  "stage": "finished",
-                  "start": $start,
-                  "stop": $stop
-                }
-            """.trimIndent()
-
-            File(allureDir, "$uuid-result.json").writeText(json)
-        }
-    }
 
     private fun skipOnboardingIfVisible() {
         try {
@@ -86,6 +55,7 @@ class HabitBaseTests : TestCase() {
 
         device.uiDevice.waitForIdle()
     }
+
     private fun assertHabitIsDisplayed(name: String) {
         device.uiDevice.waitForIdle()
 
@@ -131,48 +101,46 @@ class HabitBaseTests : TestCase() {
         }
     }
 
-
     private fun assertCheckmarkPickerIsOpened() {
         CheckmarkPickerScreen {
             yesButton.isDisplayed()
         }
     }
 
-
     @Test
-    fun test1_CreateHabit() = allureRun("test1_CreateHabit") {
+    fun test1_CreateHabit() = run {
         val habitName = "Test Habit"
 
-        Allure.step("Пропустить онбординг, если он отображается") {
+        step("Пропустить онбординг, если он отображается") {
             skipOnboardingIfVisible()
         }
 
-        Allure.step("Создать и сохранить привычку") {
+        step("Создать и сохранить привычку") {
             createHabit(habitName)
         }
 
-        Allure.step("Проверить, что привычка отображается в списке") {
+        step("Проверить, что привычка отображается в списке") {
             assertHabitIsDisplayed(habitName)
         }
     }
 
     @Test
-    fun test2_MarkAsDone() = allureRun("test2_MarkAsDone") {
+    fun test2_MarkAsDone() = run {
         val habitName = "Test Habit For Mark"
 
-        Allure.step("Пропустить онбординг, если он отображается") {
+        step("Пропустить онбординг, если он отображается") {
             skipOnboardingIfVisible()
         }
 
-        Allure.step("Создать привычку для отметки выполнения") {
+        step("Создать привычку для отметки выполнения") {
             createHabit(habitName)
         }
 
-        Allure.step("Проверить, что созданная привычка отображается в списке") {
+        step("Проверить, что созданная привычка отображается в списке") {
             assertHabitIsDisplayed(habitName)
         }
 
-        Allure.step("Нажать на левую часть панели чекбоксов у созданной привычки") {
+        step("Нажать на левую часть панели чекбоксов у созданной привычки") {
             device.uiDevice.waitForIdle()
 
             MainScreen {
@@ -188,11 +156,11 @@ class HabitBaseTests : TestCase() {
             }
         }
 
-        Allure.step("Проверить, что открылся выбор статуса выполнения") {
+        step("Проверить, что открылся выбор статуса выполнения") {
             assertCheckmarkPickerIsOpened()
         }
 
-        Allure.step("Выбрать статус выполнения Да") {
+        step("Выбрать статус выполнения Да") {
             CheckmarkPickerScreen {
                 yesButton.click()
             }
@@ -200,29 +168,28 @@ class HabitBaseTests : TestCase() {
             device.uiDevice.waitForIdle()
         }
 
-        Allure.step("Проверить, что привычка осталась в списке после отметки выполнения") {
+        step("Проверить, что привычка осталась в списке после отметки выполнения") {
             assertHabitIsDisplayed(habitName)
         }
     }
 
-
     @Test
-    fun test3_DeleteHabit() = allureRun("test3_DeleteHabit") {
+    fun test3_DeleteHabit() = run {
         val habitName = "Test Habit For Delete"
 
-        Allure.step("Пропустить онбординг, если он отображается") {
+        step("Пропустить онбординг, если он отображается") {
             skipOnboardingIfVisible()
         }
 
-        Allure.step("Создать привычку для удаления") {
+        step("Создать привычку для удаления") {
             createHabit(habitName)
         }
 
-        Allure.step("Проверить, что созданная привычка отображается в списке") {
+        step("Проверить, что созданная привычка отображается в списке") {
             assertHabitIsDisplayed(habitName)
         }
 
-        Allure.step("Удалить созданную привычку") {
+        step("Удалить созданную привычку") {
             device.uiDevice.waitForIdle()
 
             MainScreen {
@@ -252,7 +219,7 @@ class HabitBaseTests : TestCase() {
             device.uiDevice.waitForIdle()
         }
 
-        Allure.step("Проверить, что удаленная привычка больше не отображается в списке") {
+        step("Проверить, что удаленная привычка больше не отображается в списке") {
             assertHabitIsNotDisplayed(habitName)
         }
     }
