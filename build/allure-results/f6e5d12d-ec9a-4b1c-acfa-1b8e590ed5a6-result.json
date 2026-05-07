@@ -1,0 +1,126 @@
+{
+    "name": "test1_CreateHabit",
+    "start": 1778192865828,
+    "stop": 1778192884805,
+    "stage": "finished",
+    "description": null,
+    "descriptionHtml": null,
+    "status": "passed",
+    "statusDetails": null,
+    "steps": [
+        {
+            "name": "Пропустить онбординг, если он отображается",
+            "start": 1778192870147,
+            "stop": 1778192871706,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "ec8497d6-55ab-4ae2-bc96-6575d541d7e5-attachment.png",
+                    "name": "HabitBaseTests_step_1.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Создать и сохранить привычку",
+            "start": 1778192871706,
+            "stop": 1778192881156,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "2ab8ea3c-d718-44ef-8319-2c2d28aeb1ae-attachment.png",
+                    "name": "HabitBaseTests_step_2.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Проверить, что привычка отображается в списке",
+            "start": 1778192881156,
+            "stop": 1778192881499,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "272e7b0c-d9d5-44d8-9172-4d4c8f8355b0-attachment.png",
+                    "name": "HabitBaseTests_step_3.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        }
+    ],
+    "attachments": [
+        {
+            "source": "94bf1165-a3da-4e57-9428-764ef34b9d02-attachment.txt",
+            "name": "TestLogcat.txt",
+            "type": "text/plain"
+        },
+        {
+            "source": "60ffdacf-9fc8-4343-a1da-94342c492aa5-attachment.mp4",
+            "name": "Video_HabitBaseTests.mp4",
+            "type": "video/mp4"
+        }
+    ],
+    "parameters": [
+    ],
+    "uuid": "f6e5d12d-ec9a-4b1c-acfa-1b8e590ed5a6",
+    "historyId": "3d032f349cb5c3f2c97ffab8ac8f81fc",
+    "fullName": "org.isoron.uhabits.HabitBaseTests.test1_CreateHabit",
+    "labels": [
+        {
+            "name": "package",
+            "value": "org.isoron.uhabits"
+        },
+        {
+            "name": "testClass",
+            "value": "org.isoron.uhabits.HabitBaseTests"
+        },
+        {
+            "name": "testMethod",
+            "value": "test1_CreateHabit"
+        },
+        {
+            "name": "suite",
+            "value": "org.isoron.uhabits.HabitBaseTests"
+        },
+        {
+            "name": "host",
+            "value": "localhost"
+        },
+        {
+            "name": "thread",
+            "value": "Instr: com.kaspersky.kaspresso.runner.KaspressoRunner(46)"
+        },
+        {
+            "name": "framework",
+            "value": "junit4"
+        },
+        {
+            "name": "language",
+            "value": "kotlin"
+        }
+    ]
+}

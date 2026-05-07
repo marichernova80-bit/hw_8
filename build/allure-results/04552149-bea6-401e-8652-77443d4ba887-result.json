@@ -1,0 +1,210 @@
+{
+    "name": "test2_MarkAsDone",
+    "start": 1778192884835,
+    "stop": 1778192916629,
+    "stage": "finished",
+    "description": null,
+    "descriptionHtml": null,
+    "status": "passed",
+    "statusDetails": null,
+    "steps": [
+        {
+            "name": "Пропустить онбординг, если он отображается",
+            "start": 1778192888495,
+            "stop": 1778192900003,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "29a4fc1d-471e-4b0d-9b08-95d870e0121f-attachment.png",
+                    "name": "HabitBaseTests_step_1.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Создать привычку для отметки выполнения",
+            "start": 1778192900003,
+            "stop": 1778192909384,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "d7ec4520-0d59-41ed-8569-a2a8ddb33bf9-attachment.png",
+                    "name": "HabitBaseTests_step_2.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Проверить, что созданная привычка отображается в списке",
+            "start": 1778192909385,
+            "stop": 1778192909948,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "6126421c-27f1-49e7-b975-175a7e900057-attachment.png",
+                    "name": "HabitBaseTests_step_3.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Нажать на левую часть панели чекбоксов у созданной привычки",
+            "start": 1778192909948,
+            "stop": 1778192911592,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "7169c900-416f-4c90-82a4-0f81492d36e9-attachment.png",
+                    "name": "HabitBaseTests_step_4.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Проверить, что открылся выбор статуса выполнения",
+            "start": 1778192911592,
+            "stop": 1778192911672,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "bf0768fd-97a1-43a7-b881-6a517a8f387f-attachment.png",
+                    "name": "HabitBaseTests_step_5.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Выбрать статус выполнения Да",
+            "start": 1778192911672,
+            "stop": 1778192913407,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "26f4ae05-ea32-4a64-bd6c-9da410ade233-attachment.png",
+                    "name": "HabitBaseTests_step_6.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Проверить, что привычка осталась в списке после отметки выполнения",
+            "start": 1778192913407,
+            "stop": 1778192913565,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "af250fb7-7e8c-4dc8-b7d2-944fd28ef5e7-attachment.png",
+                    "name": "HabitBaseTests_step_7.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        }
+    ],
+    "attachments": [
+        {
+            "source": "18cbd644-e4f5-4502-9362-874e62317910-attachment.txt",
+            "name": "TestLogcat.txt",
+            "type": "text/plain"
+        },
+        {
+            "source": "04869349-f9a5-4f32-a114-5c0a3809399c-attachment.mp4",
+            "name": "Video_HabitBaseTests.mp4",
+            "type": "video/mp4"
+        }
+    ],
+    "parameters": [
+    ],
+    "uuid": "04552149-bea6-401e-8652-77443d4ba887",
+    "historyId": "739ca7c5dedaba1f180fdf46677d132b",
+    "fullName": "org.isoron.uhabits.HabitBaseTests.test2_MarkAsDone",
+    "labels": [
+        {
+            "name": "package",
+            "value": "org.isoron.uhabits"
+        },
+        {
+            "name": "testClass",
+            "value": "org.isoron.uhabits.HabitBaseTests"
+        },
+        {
+            "name": "testMethod",
+            "value": "test2_MarkAsDone"
+        },
+        {
+            "name": "suite",
+            "value": "org.isoron.uhabits.HabitBaseTests"
+        },
+        {
+            "name": "host",
+            "value": "localhost"
+        },
+        {
+            "name": "thread",
+            "value": "Instr: com.kaspersky.kaspresso.runner.KaspressoRunner(46)"
+        },
+        {
+            "name": "framework",
+            "value": "junit4"
+        },
+        {
+            "name": "language",
+            "value": "kotlin"
+        }
+    ]
+}
