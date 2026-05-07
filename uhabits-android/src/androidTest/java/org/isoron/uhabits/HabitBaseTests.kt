@@ -74,7 +74,6 @@ class HabitBaseTests : TestCase() {
     private fun createHabit(name: String) {
         device.uiDevice.waitForIdle()
 
-
         MainScreen { addButton.click() }
         HabitTypeScreen { yesNoButton.click() }
 
@@ -86,17 +85,74 @@ class HabitBaseTests : TestCase() {
         }
 
         device.uiDevice.waitForIdle()
-
     }
+    private fun assertHabitIsDisplayed(name: String) {
+        device.uiDevice.waitForIdle()
+
+        MainScreen {
+            habitList {
+                childWith<MainScreen.HabitItem> {
+                    withDescendant {
+                        withText(name)
+                    }
+                } perform {
+                    title.hasText(name)
+                    checkmarkPanel.isDisplayed()
+                }
+            }
+        }
+    }
+
+    private fun assertHabitIsNotDisplayed(name: String) {
+        device.uiDevice.waitForIdle()
+
+        var isDisplayed = false
+
+        try {
+            MainScreen {
+                habitList {
+                    childWith<MainScreen.HabitItem> {
+                        withDescendant {
+                            withText(name)
+                        }
+                    } perform {
+                        title.hasText(name)
+                    }
+                }
+            }
+
+            isDisplayed = true
+        } catch (_: Throwable) {
+            isDisplayed = false
+        }
+
+        if (isDisplayed) {
+            throw AssertionError("Habit '$name' was not deleted")
+        }
+    }
+
+
+    private fun assertCheckmarkPickerIsOpened() {
+        CheckmarkPickerScreen {
+            yesButton.isDisplayed()
+        }
+    }
+
 
     @Test
     fun test1_CreateHabit() = allureRun("test1_CreateHabit") {
+        val habitName = "Test Habit"
+
         Allure.step("Пропустить онбординг, если он отображается") {
             skipOnboardingIfVisible()
         }
 
         Allure.step("Создать и сохранить привычку") {
-            createHabit("Test Habit")
+            createHabit(habitName)
+        }
+
+        Allure.step("Проверить, что привычка отображается в списке") {
+            assertHabitIsDisplayed(habitName)
         }
     }
 
@@ -112,9 +168,12 @@ class HabitBaseTests : TestCase() {
             createHabit(habitName)
         }
 
+        Allure.step("Проверить, что созданная привычка отображается в списке") {
+            assertHabitIsDisplayed(habitName)
+        }
+
         Allure.step("Нажать на левую часть панели чекбоксов у созданной привычки") {
             device.uiDevice.waitForIdle()
-
 
             MainScreen {
                 habitList {
@@ -127,14 +186,25 @@ class HabitBaseTests : TestCase() {
                     }
                 }
             }
+        }
 
-            device.uiDevice.waitForIdle()
+        Allure.step("Проверить, что открылся выбор статуса выполнения") {
+            assertCheckmarkPickerIsOpened()
+        }
 
+        Allure.step("Выбрать статус выполнения Да") {
             CheckmarkPickerScreen {
                 yesButton.click()
             }
+
+            device.uiDevice.waitForIdle()
+        }
+
+        Allure.step("Проверить, что привычка осталась в списке после отметки выполнения") {
+            assertHabitIsDisplayed(habitName)
         }
     }
+
 
     @Test
     fun test3_DeleteHabit() = allureRun("test3_DeleteHabit") {
@@ -146,6 +216,10 @@ class HabitBaseTests : TestCase() {
 
         Allure.step("Создать привычку для удаления") {
             createHabit(habitName)
+        }
+
+        Allure.step("Проверить, что созданная привычка отображается в списке") {
+            assertHabitIsDisplayed(habitName)
         }
 
         Allure.step("Удалить созданную привычку") {
@@ -174,7 +248,12 @@ class HabitBaseTests : TestCase() {
             device.uiDevice.waitForIdle()
 
             KButton { withId(android.R.id.button1) }.click()
+
+            device.uiDevice.waitForIdle()
+        }
+
+        Allure.step("Проверить, что удаленная привычка больше не отображается в списке") {
+            assertHabitIsNotDisplayed(habitName)
         }
     }
-
 }
