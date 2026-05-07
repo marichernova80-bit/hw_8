@@ -13,9 +13,8 @@ import org.junit.FixMethodOrder
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runners.MethodSorters
-import java.util.UUID
 import java.io.File
-
+import java.util.UUID
 
 fun clickLeft() = GeneralClickAction(
     Tap.SINGLE,
@@ -47,58 +46,89 @@ class HabitBaseTests : TestCase() {
             val allureDir = File("/storage/emulated/0/Documents/allure-results")
             allureDir.mkdirs()
 
-
             val json = """
-            {
-              "uuid": "$uuid",
-              "historyId": "$testName",
-              "testCaseId": "$testName",
-              "name": "$testName",
-              "fullName": "org.isoron.uhabits.HabitBaseTests.$testName",
-              "status": "$status",
-              "stage": "finished",
-              "start": $start,
-              "stop": $stop
-            }
-        """.trimIndent()
+                {
+                  "uuid": "$uuid",
+                  "historyId": "$testName",
+                  "testCaseId": "$testName",
+                  "name": "$testName",
+                  "fullName": "org.isoron.uhabits.HabitBaseTests.$testName",
+                  "status": "$status",
+                  "stage": "finished",
+                  "start": $start,
+                  "stop": $stop
+                }
+            """.trimIndent()
 
             File(allureDir, "$uuid-result.json").writeText(json)
         }
     }
 
+    private fun skipOnboardingIfVisible() {
+        try {
+            OnboardingScreen { skipButton.click() }
+        } catch (_: Throwable) {
+        }
+    }
+
+    private fun createHabit(name: String) {
+        device.uiDevice.waitForIdle()
+
+
+        MainScreen { addButton.click() }
+        HabitTypeScreen { yesNoButton.click() }
+
+        device.uiDevice.waitForIdle()
+
+        EditHabitScreen {
+            nameField.typeText(name)
+            saveButton.click()
+        }
+
+        device.uiDevice.waitForIdle()
+
+    }
 
     @Test
     fun test1_CreateHabit() = allureRun("test1_CreateHabit") {
-        Allure.step("Пропустить онбординг") {
-            OnboardingScreen { skipButton.click() }
+        Allure.step("Пропустить онбординг, если он отображается") {
+            skipOnboardingIfVisible()
         }
 
         Allure.step("Создать и сохранить привычку") {
-            Thread.sleep(1500)
-            MainScreen { addButton.click() }
-            HabitTypeScreen { yesNoButton.click() }
-
-            Thread.sleep(1500)
-            EditHabitScreen {
-                nameField.typeText("Test Habit")
-                saveButton.click()
-            }
+            createHabit("Test Habit")
         }
     }
 
     @Test
     fun test2_MarkAsDone() = allureRun("test2_MarkAsDone") {
-        Allure.step("Нажать на левую часть панели чекбоксов") {
-            Thread.sleep(2000)
+        val habitName = "Test Habit For Mark"
+
+        Allure.step("Пропустить онбординг, если он отображается") {
+            skipOnboardingIfVisible()
+        }
+
+        Allure.step("Создать привычку для отметки выполнения") {
+            createHabit(habitName)
+        }
+
+        Allure.step("Нажать на левую часть панели чекбоксов у созданной привычки") {
+            device.uiDevice.waitForIdle()
+
+
             MainScreen {
                 habitList {
-                    childAt<MainScreen.HabitItem>(0) {
+                    childWith<MainScreen.HabitItem> {
+                        withDescendant {
+                            withText(habitName)
+                        }
+                    } perform {
                         checkmarkPanel.view.interaction.perform(clickLeft())
                     }
                 }
             }
 
-            Thread.sleep(1500)
+            device.uiDevice.waitForIdle()
 
             CheckmarkPickerScreen {
                 yesButton.click()
@@ -108,27 +138,43 @@ class HabitBaseTests : TestCase() {
 
     @Test
     fun test3_DeleteHabit() = allureRun("test3_DeleteHabit") {
-        Allure.step("Удалить привычку") {
-            Thread.sleep(2000)
+        val habitName = "Test Habit For Delete"
+
+        Allure.step("Пропустить онбординг, если он отображается") {
+            skipOnboardingIfVisible()
+        }
+
+        Allure.step("Создать привычку для удаления") {
+            createHabit(habitName)
+        }
+
+        Allure.step("Удалить созданную привычку") {
+            device.uiDevice.waitForIdle()
+
             MainScreen {
                 habitList {
-                    childAt<MainScreen.HabitItem>(0) {
+                    childWith<MainScreen.HabitItem> {
+                        withDescendant {
+                            withText(habitName)
+                        }
+                    } perform {
                         title.click()
                     }
                 }
             }
 
-            Thread.sleep(1500)
+            device.uiDevice.waitForIdle()
 
             HabitDetailsScreen {
                 moreOptions.click()
-                Thread.sleep(500)
+                device.uiDevice.waitForIdle()
                 deleteMenuButton.click()
             }
 
-            Thread.sleep(1000)
+            device.uiDevice.waitForIdle()
 
             KButton { withId(android.R.id.button1) }.click()
         }
     }
+
 }
