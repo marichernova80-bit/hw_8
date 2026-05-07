@@ -1,0 +1,78 @@
+--------- beginning of main
+05-08 01:28:37.339 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:37.340 12304 12325 I KASPRESSO: Logcat buffer may be dumped from 05-08 01:28:37.339
+05-08 01:28:37.459 12304 12325 I KASPRESSO: Starting video recording: Video_HabitBaseTests.mp4
+05-08 01:28:37.460 12304 12325 I KASPRESSO: Waiting for 3000 ms
+05-08 01:28:37.460 12304 13913 D KASPRESSO: Display resolution: 1080x2209; supported codec resolution: 2048x2048
+05-08 01:28:37.460 12304 13913 D KASPRESSO: Starting video recording with resolution 1080x2048
+05-08 01:28:40.461 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:40.461 12304 12325 I KASPRESSO: BEFORE TEST SECTION
+05-08 01:28:40.461 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:40.462 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:40.462 12304 12325 I KASPRESSO: TEST SECTION
+05-08 01:28:40.462 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:40.464 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:40.464 12304 12325 I KASPRESSO: TEST STEP: "1. Пропустить онбординг, если он отображается" in HabitBaseTests
+05-08 01:28:40.506 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getId()'s resource name should match is "skip") because of NoMatchingViewException
+05-08 01:28:44.261 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getId()'s resource name should match is "skip") because of NoMatchingViewException
+05-08 01:28:48.060 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getId()'s resource name should match is "skip") because of NoMatchingViewException
+05-08 01:28:51.828 12304 12325 E KASPRESSO: All attempts to interact for 10000 ms totally failed because of NoMatchingViewException
+05-08 01:28:51.829 12304 12325 I KASPRESSO: TEST STEP: "1. Пропустить онбординг, если он отображается" in HabitBaseTests SUCCEED. It took 0 minutes, 11 seconds and 364 millis. 
+05-08 01:28:51.829 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:51.932 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test3_DeleteHabit/HabitBaseTests_step_1.png
+05-08 01:28:51.932 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:51.932 12304 12325 I KASPRESSO: TEST STEP: "2. Создать привычку для удаления" in HabitBaseTests
+05-08 01:28:51.935 12304 12304 I KASPRESSO: single click on ActionMenuItemView(id=actionCreateHabit;desc=Add habit;)
+05-08 01:28:53.229 12304 12304 I KASPRESSO: single click on LinearLayout(id=buttonYesNo;)
+05-08 01:28:55.642 12304 12304 I KASPRESSO: type text(Test Habit For Delete) on AppCompatEditText(id=nameInput;hint=e.g. Exercise;)
+05-08 01:28:59.319 12304 12304 I KASPRESSO: single click on MaterialButton(id=buttonSave;text=Save;)
+05-08 01:29:01.473 12304 12325 I KASPRESSO: TEST STEP: "2. Создать привычку для удаления" in HabitBaseTests SUCCEED. It took 0 minutes, 9 seconds and 541 millis. 
+05-08 01:29:01.473 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:29:01.659 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test3_DeleteHabit/HabitBaseTests_step_2.png
+05-08 01:29:01.660 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:29:01.660 12304 12325 I KASPRESSO: TEST STEP: "3. Проверить, что созданная привычка отображается в списке" in HabitBaseTests
+05-08 01:29:01.671 12304 12304 I KASPRESSO: scroll RecyclerView to: holder with view: (0th view with: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete")))) on HabitCardListView(resource id not found;)
+05-08 01:29:01.768 12304 12304 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete" on TextView(resource id not found;text=Test Habit For Delete;)
+05-08 01:29:01.777 12304 12304 I KASPRESSO: Check (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle) on CheckmarkPanelView(resource id not found;)
+05-08 01:29:01.778 12304 12325 I KASPRESSO: TEST STEP: "3. Проверить, что созданная привычка отображается в списке" in HabitBaseTests SUCCEED. It took 0 minutes, 0 seconds and 118 millis. 
+05-08 01:29:01.778 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:29:01.997 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test3_DeleteHabit/HabitBaseTests_step_3.png
+05-08 01:29:01.997 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:29:01.997 12304 12325 I KASPRESSO: TEST STEP: "4. Удалить созданную привычку" in HabitBaseTests
+05-08 01:29:02.337 12304 12304 I KASPRESSO: scroll RecyclerView to: holder with view: (0th view with: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete")))) on HabitCardListView(resource id not found;)
+05-08 01:29:02.467 12304 12304 I KASPRESSO: single click on TextView(resource id not found;text=Test Habit For Delete;)
+05-08 01:29:04.249 12304 12304 I KASPRESSO: single click on OverflowMenuButton(resource id not found;desc=More options;)
+05-08 01:29:05.911 12304 12304 I KASPRESSO: single click on MaterialTextView(id=title;text=Delete;)
+05-08 01:29:07.136 12304 12304 I KASPRESSO: single click on MaterialButton(id=button1;text=Yes;)
+05-08 01:29:08.910 12304 12325 I KASPRESSO: TEST STEP: "4. Удалить созданную привычку" in HabitBaseTests SUCCEED. It took 0 minutes, 6 seconds and 912 millis. 
+05-08 01:29:08.910 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:29:09.016 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test3_DeleteHabit/HabitBaseTests_step_4.png
+05-08 01:29:09.016 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:29:09.016 12304 12325 I KASPRESSO: TEST STEP: "5. Проверить, что удаленная привычка больше не отображается в списке" in HabitBaseTests
+05-08 01:29:09.021 12304 12304 I KASPRESSO: scroll RecyclerView to: holder with view: (0th view with: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete")))) on HabitCardListView(resource id not found;)
+05-08 01:29:09.025 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getClass().getName() matches: a string containing "HabitCardListView") because of PerformException
+05-08 01:29:09.028 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getClass().getName() matches: a string containing "HabitCardListView") because of PerformException
+05-08 01:29:13.106 12304 12304 I KASPRESSO: scroll RecyclerView to: holder with view: (0th view with: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete")))) on HabitCardListView(resource id not found;)
+05-08 01:29:13.117 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getClass().getName() matches: a string containing "HabitCardListView") because of PerformException
+05-08 01:29:13.123 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getClass().getName() matches: a string containing "HabitCardListView") because of PerformException
+05-08 01:29:16.818 12304 12304 I KASPRESSO: scroll RecyclerView to: holder with view: (0th view with: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete")))) on HabitCardListView(resource id not found;)
+05-08 01:29:16.827 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getClass().getName() matches: a string containing "HabitCardListView") because of PerformException
+05-08 01:29:16.832 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getClass().getName() matches: a string containing "HabitCardListView") because of PerformException
+05-08 01:29:20.517 12304 12325 E KASPRESSO: All attempts to interact for 10000 ms totally failed because of PerformException
+05-08 01:29:20.558 12304 12304 I KASPRESSO: (is assignable from class <class android.widget.TextView> and is descendant of a view matching (view holder: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete")))of recycler view: (view.getClass().getName() matches: a string containing "HabitCardListView")))
+05-08 01:29:20.559 12304 12325 E KASPRESSO: Failed to interact with view matching: (is assignable from class <class android.widget.TextView> and is descendant of a view matching (view holder: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete")))of recycler view: (view.getClass().getName() matches: a string containing "HabitCardListView"))) because of NoMatchingViewException
+05-08 01:29:24.286 12304 12304 I KASPRESSO: (is assignable from class <class android.widget.TextView> and is descendant of a view matching (view holder: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete")))of recycler view: (view.getClass().getName() matches: a string containing "HabitCardListView")))
+05-08 01:29:24.287 12304 12325 E KASPRESSO: Failed to interact with view matching: (is assignable from class <class android.widget.TextView> and is descendant of a view matching (view holder: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete")))of recycler view: (view.getClass().getName() matches: a string containing "HabitCardListView"))) because of NoMatchingViewException
+05-08 01:29:28.019 12304 12304 I KASPRESSO: (is assignable from class <class android.widget.TextView> and is descendant of a view matching (view holder: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete")))of recycler view: (view.getClass().getName() matches: a string containing "HabitCardListView")))
+05-08 01:29:28.019 12304 12325 E KASPRESSO: Failed to interact with view matching: (is assignable from class <class android.widget.TextView> and is descendant of a view matching (view holder: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Delete")))of recycler view: (view.getClass().getName() matches: a string containing "HabitCardListView"))) because of NoMatchingViewException
+05-08 01:29:31.708 12304 12325 E KASPRESSO: All attempts to interact for 10000 ms totally failed because of NoMatchingViewException
+05-08 01:29:31.709 12304 12325 I KASPRESSO: TEST STEP: "5. Проверить, что удаленная привычка больше не отображается в списке" in HabitBaseTests SUCCEED. It took 0 minutes, 22 seconds and 693 millis. 
+05-08 01:29:31.709 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:29:31.810 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test3_DeleteHabit/HabitBaseTests_step_5.png
+05-08 01:29:31.811 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:29:31.811 12304 12325 I KASPRESSO: AFTER TEST SECTION
+05-08 01:29:31.811 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:29:31.811 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:29:31.811 12304 12325 I KASPRESSO: TEST PASSED
+05-08 01:29:31.811 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:29:31.811 12304 12325 I KASPRESSO: Dump logcat buffer to /data/user/0/org.isoron.uhabits/files/logcat/org.isoron.uhabits.HabitBaseTests/test3_DeleteHabit/TestLogcat.txt: logcat -b default -d -t "05-08 01:28:37.339" -s "KASPRESSO","KASPRESSO_TEST"

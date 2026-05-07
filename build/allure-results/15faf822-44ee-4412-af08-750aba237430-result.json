@@ -1,0 +1,168 @@
+{
+    "name": "test3_DeleteHabit",
+    "start": 1778192916636,
+    "stop": 1778192974867,
+    "stage": "finished",
+    "description": null,
+    "descriptionHtml": null,
+    "status": "passed",
+    "statusDetails": null,
+    "steps": [
+        {
+            "name": "Пропустить онбординг, если он отображается",
+            "start": 1778192920465,
+            "stop": 1778192931932,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "b5e60dd1-be13-4ac3-8433-e0ff83d068cd-attachment.png",
+                    "name": "HabitBaseTests_step_1.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Создать привычку для удаления",
+            "start": 1778192931932,
+            "stop": 1778192941659,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "cb4ce64e-5b09-4c8b-bdc2-b79f501edf79-attachment.png",
+                    "name": "HabitBaseTests_step_2.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Проверить, что созданная привычка отображается в списке",
+            "start": 1778192941661,
+            "stop": 1778192941997,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "4428856a-93c5-4e49-b54b-755ff383a215-attachment.png",
+                    "name": "HabitBaseTests_step_3.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Удалить созданную привычку",
+            "start": 1778192941997,
+            "stop": 1778192949016,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "0b77fbc9-5d13-4e54-b0c9-60bc6b9302b6-attachment.png",
+                    "name": "HabitBaseTests_step_4.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Проверить, что удаленная привычка больше не отображается в списке",
+            "start": 1778192949016,
+            "stop": 1778192971810,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "source": "87fe447e-af32-4300-9bb8-a92d9e2dc42c-attachment.png",
+                    "name": "HabitBaseTests_step_5.png",
+                    "type": "image/png"
+                }
+            ],
+            "parameters": [
+            ]
+        }
+    ],
+    "attachments": [
+        {
+            "source": "834c8e6c-d4c5-45d4-be16-540faa7d878d-attachment.txt",
+            "name": "TestLogcat.txt",
+            "type": "text/plain"
+        },
+        {
+            "source": "c94c86c6-4c17-495c-a7dd-d7424ec3606b-attachment.mp4",
+            "name": "Video_HabitBaseTests.mp4",
+            "type": "video/mp4"
+        }
+    ],
+    "parameters": [
+    ],
+    "uuid": "15faf822-44ee-4412-af08-750aba237430",
+    "historyId": "89dd149ed861390e18d97a4d7aaa0b2b",
+    "fullName": "org.isoron.uhabits.HabitBaseTests.test3_DeleteHabit",
+    "labels": [
+        {
+            "name": "package",
+            "value": "org.isoron.uhabits"
+        },
+        {
+            "name": "testClass",
+            "value": "org.isoron.uhabits.HabitBaseTests"
+        },
+        {
+            "name": "testMethod",
+            "value": "test3_DeleteHabit"
+        },
+        {
+            "name": "suite",
+            "value": "org.isoron.uhabits.HabitBaseTests"
+        },
+        {
+            "name": "host",
+            "value": "localhost"
+        },
+        {
+            "name": "thread",
+            "value": "Instr: com.kaspersky.kaspresso.runner.KaspressoRunner(46)"
+        },
+        {
+            "name": "framework",
+            "value": "junit4"
+        },
+        {
+            "name": "language",
+            "value": "kotlin"
+        }
+    ]
+}

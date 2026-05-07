@@ -59,9 +59,9 @@ android {
         applicationId = "org.isoron.uhabits"
 
        // testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunner = "org.isoron.uhabits.AllureFixRunner"
 
-
+        testInstrumentationRunner = "com.kaspersky.kaspresso.runner.KaspressoRunner"
+        //testInstrumentationRunner = "org.isoron.uhabits.AllureFixRunner"
     }
 
     signingConfigs {
@@ -171,13 +171,18 @@ tasks.register<Exec>("pullAllureResults") {
     }
 
     commandLine(
-        "adb",
-        "pull",
-        "/storage/emulated/0/Documents/allure-results/.",
-        rootProject.layout.buildDirectory.dir("allure-results").get().asFile.absolutePath
+        "sh",
+        "-c",
+        """
+        if adb shell '[ -d /storage/emulated/0/Documents/allure-results ]'; then
+          adb pull /storage/emulated/0/Documents/allure-results/. ${rootProject.layout.buildDirectory.dir("allure-results").get().asFile.absolutePath}
+        else
+          echo "No Allure results found on device"
+        fi
+        """.trimIndent()
     )
-
 }
+
 
 
 

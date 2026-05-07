@@ -1,0 +1,72 @@
+--------- beginning of main
+05-08 01:28:05.390 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:05.392 12304 12325 I KASPRESSO: Logcat buffer may be dumped from 05-08 01:28:05.390
+05-08 01:28:05.492 12304 12325 I KASPRESSO: Starting video recording: Video_HabitBaseTests.mp4
+05-08 01:28:05.492 12304 12325 I KASPRESSO: Waiting for 3000 ms
+05-08 01:28:05.501 12304 13051 D KASPRESSO: Display resolution: 1080x2209; supported codec resolution: 2048x2048
+05-08 01:28:05.501 12304 13051 D KASPRESSO: Starting video recording with resolution 1080x2048
+05-08 01:28:08.493 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:08.493 12304 12325 I KASPRESSO: BEFORE TEST SECTION
+05-08 01:28:08.493 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:08.493 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:08.493 12304 12325 I KASPRESSO: TEST SECTION
+05-08 01:28:08.493 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:08.494 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:08.494 12304 12325 I KASPRESSO: TEST STEP: "1. Пропустить онбординг, если он отображается" in HabitBaseTests
+05-08 01:28:08.522 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getId()'s resource name should match is "skip") because of NoMatchingViewException
+05-08 01:28:12.325 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getId()'s resource name should match is "skip") because of NoMatchingViewException
+05-08 01:28:16.130 12304 12325 E KASPRESSO: Failed to interact with view matching: (view.getId()'s resource name should match is "skip") because of NoMatchingViewException
+05-08 01:28:19.910 12304 12325 E KASPRESSO: All attempts to interact for 10000 ms totally failed because of NoMatchingViewException
+05-08 01:28:19.911 12304 12325 I KASPRESSO: TEST STEP: "1. Пропустить онбординг, если он отображается" in HabitBaseTests SUCCEED. It took 0 minutes, 11 seconds and 416 millis. 
+05-08 01:28:19.911 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:20.003 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test2_MarkAsDone/HabitBaseTests_step_1.png
+05-08 01:28:20.003 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:20.003 12304 12325 I KASPRESSO: TEST STEP: "2. Создать привычку для отметки выполнения" in HabitBaseTests
+05-08 01:28:20.007 12304 12304 I KASPRESSO: single click on ActionMenuItemView(id=actionCreateHabit;desc=Add habit;)
+05-08 01:28:21.331 12304 12304 I KASPRESSO: single click on LinearLayout(id=buttonYesNo;)
+05-08 01:28:24.141 12304 12304 I KASPRESSO: type text(Test Habit For Mark) on AppCompatEditText(id=nameInput;hint=e.g. Exercise;)
+05-08 01:28:26.986 12304 12304 I KASPRESSO: single click on MaterialButton(id=buttonSave;text=Save;)
+05-08 01:28:29.124 12304 12325 I KASPRESSO: TEST STEP: "2. Создать привычку для отметки выполнения" in HabitBaseTests SUCCEED. It took 0 minutes, 9 seconds and 121 millis. 
+05-08 01:28:29.124 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:29.384 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test2_MarkAsDone/HabitBaseTests_step_2.png
+05-08 01:28:29.384 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:29.384 12304 12325 I KASPRESSO: TEST STEP: "3. Проверить, что созданная привычка отображается в списке" in HabitBaseTests
+05-08 01:28:29.417 12304 12304 I KASPRESSO: scroll RecyclerView to: holder with view: (0th view with: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Mark")))) on HabitCardListView(resource id not found;)
+05-08 01:28:29.621 12304 12304 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Mark" on TextView(resource id not found;text=Test Habit For Mark;)
+05-08 01:28:29.629 12304 12304 I KASPRESSO: Check (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle) on CheckmarkPanelView(resource id not found;)
+05-08 01:28:29.630 12304 12325 I KASPRESSO: TEST STEP: "3. Проверить, что созданная привычка отображается в списке" in HabitBaseTests SUCCEED. It took 0 minutes, 0 seconds and 246 millis. 
+05-08 01:28:29.630 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:29.948 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test2_MarkAsDone/HabitBaseTests_step_3.png
+05-08 01:28:29.948 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:29.948 12304 12325 I KASPRESSO: TEST STEP: "4. Нажать на левую часть панели чекбоксов у созданной привычки" in HabitBaseTests
+05-08 01:28:30.184 12304 12304 I KASPRESSO: scroll RecyclerView to: holder with view: (0th view with: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Mark")))) on HabitCardListView(resource id not found;)
+05-08 01:28:31.477 12304 12325 I KASPRESSO: TEST STEP: "4. Нажать на левую часть панели чекбоксов у созданной привычки" in HabitBaseTests SUCCEED. It took 0 minutes, 1 seconds and 529 millis. 
+05-08 01:28:31.477 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:31.592 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test2_MarkAsDone/HabitBaseTests_step_4.png
+05-08 01:28:31.592 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:31.592 12304 12325 I KASPRESSO: TEST STEP: "5. Проверить, что открылся выбор статуса выполнения" in HabitBaseTests
+05-08 01:28:31.596 12304 12304 I KASPRESSO: Check (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle) on MaterialTextView(id=yesBtn;text=;)
+05-08 01:28:31.596 12304 12325 I KASPRESSO: TEST STEP: "5. Проверить, что открылся выбор статуса выполнения" in HabitBaseTests SUCCEED. It took 0 minutes, 0 seconds and 4 millis. 
+05-08 01:28:31.596 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:31.671 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test2_MarkAsDone/HabitBaseTests_step_5.png
+05-08 01:28:31.672 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:31.672 12304 12325 I KASPRESSO: TEST STEP: "6. Выбрать статус выполнения Да" in HabitBaseTests
+05-08 01:28:31.675 12304 12304 I KASPRESSO: single click on MaterialTextView(id=yesBtn;text=;)
+05-08 01:28:33.315 12304 12325 I KASPRESSO: TEST STEP: "6. Выбрать статус выполнения Да" in HabitBaseTests SUCCEED. It took 0 minutes, 1 seconds and 642 millis. 
+05-08 01:28:33.315 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:33.407 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test2_MarkAsDone/HabitBaseTests_step_6.png
+05-08 01:28:33.407 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:33.407 12304 12325 I KASPRESSO: TEST STEP: "7. Проверить, что привычка осталась в списке после отметки выполнения" in HabitBaseTests
+05-08 01:28:33.411 12304 12304 I KASPRESSO: scroll RecyclerView to: holder with view: (0th view with: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Mark")))) on HabitCardListView(resource id not found;)
+05-08 01:28:33.430 12304 12304 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit For Mark" on TextView(resource id not found;text=Test Habit For Mark;)
+05-08 01:28:33.436 12304 12304 I KASPRESSO: Check (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle) on CheckmarkPanelView(resource id not found;)
+05-08 01:28:33.437 12304 12325 I KASPRESSO: TEST STEP: "7. Проверить, что привычка осталась в списке после отметки выполнения" in HabitBaseTests SUCCEED. It took 0 minutes, 0 seconds and 30 millis. 
+05-08 01:28:33.437 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:33.565 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test2_MarkAsDone/HabitBaseTests_step_7.png
+05-08 01:28:33.565 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:33.565 12304 12325 I KASPRESSO: AFTER TEST SECTION
+05-08 01:28:33.565 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:33.565 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:33.565 12304 12325 I KASPRESSO: TEST PASSED
+05-08 01:28:33.565 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:33.566 12304 12325 I KASPRESSO: Dump logcat buffer to /data/user/0/org.isoron.uhabits/files/logcat/org.isoron.uhabits.HabitBaseTests/test2_MarkAsDone/TestLogcat.txt: logcat -b default -d -t "05-08 01:28:05.390" -s "KASPRESSO","KASPRESSO_TEST"

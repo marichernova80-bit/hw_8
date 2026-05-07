@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","18977","test1_CreateHabit","","2026-05-08","passed","2026-05-08","","org.isoron.uhabits.HabitBaseTests","org.isoron.uhabits.HabitBaseTests","test1_CreateHabit"
+"","31794","test2_MarkAsDone","","2026-05-08","passed","2026-05-08","","org.isoron.uhabits.HabitBaseTests","org.isoron.uhabits.HabitBaseTests","test2_MarkAsDone"
+"","58231","test3_DeleteHabit","","2026-05-08","passed","2026-05-08","","org.isoron.uhabits.HabitBaseTests","org.isoron.uhabits.HabitBaseTests","test3_DeleteHabit"

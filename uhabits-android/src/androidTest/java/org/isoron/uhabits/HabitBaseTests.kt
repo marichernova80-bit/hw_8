@@ -5,16 +5,16 @@ import androidx.test.espresso.action.GeneralLocation
 import androidx.test.espresso.action.Press
 import androidx.test.espresso.action.Tap
 import androidx.test.rule.ActivityTestRule
+import com.kaspersky.kaspresso.kaspresso.Kaspresso
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import io.github.kakaocup.kakao.text.KButton
-import io.qameta.allure.kotlin.Allure
 import org.isoron.uhabits.activities.habits.list.ListHabitsActivity
 import org.junit.FixMethodOrder
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runners.MethodSorters
-import java.util.UUID
-import java.io.File
+import com.kaspersky.components.alluresupport.withForcedAllureSupport
+
 
 
 fun clickLeft() = GeneralClickAction(
@@ -26,109 +26,201 @@ fun clickLeft() = GeneralClickAction(
 )
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-class HabitBaseTests : TestCase() {
+class HabitBaseTests : TestCase(
+    kaspressoBuilder = Kaspresso.Builder.withForcedAllureSupport()
+) {
 
     @get:Rule
     val activityRule = ActivityTestRule(ListHabitsActivity::class.java, true, true)
 
-    private fun allureRun(testName: String, block: () -> Unit) {
-        val uuid = UUID.randomUUID().toString()
-        val start = System.currentTimeMillis()
-        var status = "passed"
+    private fun skipOnboardingIfVisible() {
+        try {
+            OnboardingScreen { skipButton.click() }
+        } catch (_: Throwable) {
+        }
+    }
+
+    private fun createHabit(name: String) {
+        device.uiDevice.waitForIdle()
+
+        MainScreen { addButton.click() }
+        HabitTypeScreen { yesNoButton.click() }
+
+        device.uiDevice.waitForIdle()
+
+        EditHabitScreen {
+            nameField.typeText(name)
+            saveButton.click()
+        }
+
+        device.uiDevice.waitForIdle()
+    }
+
+    private fun assertHabitIsDisplayed(name: String) {
+        device.uiDevice.waitForIdle()
+
+        MainScreen {
+            habitList {
+                childWith<MainScreen.HabitItem> {
+                    withDescendant {
+                        withText(name)
+                    }
+                } perform {
+                    title.hasText(name)
+                    checkmarkPanel.isDisplayed()
+                }
+            }
+        }
+    }
+
+    private fun assertHabitIsNotDisplayed(name: String) {
+        device.uiDevice.waitForIdle()
+
+        var isDisplayed = false
 
         try {
-            block()
-        } catch (t: Throwable) {
-            status = "failed"
-            throw t
-        } finally {
-            val stop = System.currentTimeMillis()
-
-            val allureDir = File("/storage/emulated/0/Documents/allure-results")
-            allureDir.mkdirs()
-
-
-            val json = """
-            {
-              "uuid": "$uuid",
-              "historyId": "$testName",
-              "testCaseId": "$testName",
-              "name": "$testName",
-              "fullName": "org.isoron.uhabits.HabitBaseTests.$testName",
-              "status": "$status",
-              "stage": "finished",
-              "start": $start,
-              "stop": $stop
-            }
-        """.trimIndent()
-
-            File(allureDir, "$uuid-result.json").writeText(json)
-        }
-    }
-
-
-    @Test
-    fun test1_CreateHabit() = allureRun("test1_CreateHabit") {
-        Allure.step("Пропустить онбординг") {
-            OnboardingScreen { skipButton.click() }
-        }
-
-        Allure.step("Создать и сохранить привычку") {
-            Thread.sleep(1500)
-            MainScreen { addButton.click() }
-            HabitTypeScreen { yesNoButton.click() }
-
-            Thread.sleep(1500)
-            EditHabitScreen {
-                nameField.typeText("Test Habit")
-                saveButton.click()
-            }
-        }
-    }
-
-    @Test
-    fun test2_MarkAsDone() = allureRun("test2_MarkAsDone") {
-        Allure.step("Нажать на левую часть панели чекбоксов") {
-            Thread.sleep(2000)
             MainScreen {
                 habitList {
-                    childAt<MainScreen.HabitItem>(0) {
-                        checkmarkPanel.view.interaction.perform(clickLeft())
+                    childWith<MainScreen.HabitItem> {
+                        withDescendant {
+                            withText(name)
+                        }
+                    } perform {
+                        title.hasText(name)
                     }
                 }
             }
 
-            Thread.sleep(1500)
+            isDisplayed = true
+        } catch (_: Throwable) {
+            isDisplayed = false
+        }
 
-            CheckmarkPickerScreen {
-                yesButton.click()
-            }
+        if (isDisplayed) {
+            throw AssertionError("Habit '$name' was not deleted")
+        }
+    }
+
+    private fun assertCheckmarkPickerIsOpened() {
+        CheckmarkPickerScreen {
+            yesButton.isDisplayed()
         }
     }
 
     @Test
-    fun test3_DeleteHabit() = allureRun("test3_DeleteHabit") {
-        Allure.step("Удалить привычку") {
-            Thread.sleep(2000)
+    fun test1_CreateHabit() = run {
+        val habitName = "Test Habit"
+
+        step("Пропустить онбординг, если он отображается") {
+            skipOnboardingIfVisible()
+        }
+
+        step("Создать и сохранить привычку") {
+            createHabit(habitName)
+        }
+
+        step("Проверить, что привычка отображается в списке") {
+            assertHabitIsDisplayed(habitName)
+        }
+    }
+
+    @Test
+    fun test2_MarkAsDone() = run {
+        val habitName = "Test Habit For Mark"
+
+        step("Пропустить онбординг, если он отображается") {
+            skipOnboardingIfVisible()
+        }
+
+        step("Создать привычку для отметки выполнения") {
+            createHabit(habitName)
+        }
+
+        step("Проверить, что созданная привычка отображается в списке") {
+            assertHabitIsDisplayed(habitName)
+        }
+
+        step("Нажать на левую часть панели чекбоксов у созданной привычки") {
+            device.uiDevice.waitForIdle()
+
             MainScreen {
                 habitList {
-                    childAt<MainScreen.HabitItem>(0) {
+                    childWith<MainScreen.HabitItem> {
+                        withDescendant {
+                            withText(habitName)
+                        }
+                    } perform {
+                        checkmarkPanel.view.interaction.perform(clickLeft())
+                    }
+                }
+            }
+        }
+
+        step("Проверить, что открылся выбор статуса выполнения") {
+            assertCheckmarkPickerIsOpened()
+        }
+
+        step("Выбрать статус выполнения Да") {
+            CheckmarkPickerScreen {
+                yesButton.click()
+            }
+
+            device.uiDevice.waitForIdle()
+        }
+
+        step("Проверить, что привычка осталась в списке после отметки выполнения") {
+            assertHabitIsDisplayed(habitName)
+        }
+    }
+
+    @Test
+    fun test3_DeleteHabit() = run {
+        val habitName = "Test Habit For Delete"
+
+        step("Пропустить онбординг, если он отображается") {
+            skipOnboardingIfVisible()
+        }
+
+        step("Создать привычку для удаления") {
+            createHabit(habitName)
+        }
+
+        step("Проверить, что созданная привычка отображается в списке") {
+            assertHabitIsDisplayed(habitName)
+        }
+
+        step("Удалить созданную привычку") {
+            device.uiDevice.waitForIdle()
+
+            MainScreen {
+                habitList {
+                    childWith<MainScreen.HabitItem> {
+                        withDescendant {
+                            withText(habitName)
+                        }
+                    } perform {
                         title.click()
                     }
                 }
             }
 
-            Thread.sleep(1500)
+            device.uiDevice.waitForIdle()
 
             HabitDetailsScreen {
                 moreOptions.click()
-                Thread.sleep(500)
+                device.uiDevice.waitForIdle()
                 deleteMenuButton.click()
             }
 
-            Thread.sleep(1000)
+            device.uiDevice.waitForIdle()
 
             KButton { withId(android.R.id.button1) }.click()
+
+            device.uiDevice.waitForIdle()
+        }
+
+        step("Проверить, что удаленная привычка больше не отображается в списке") {
+            assertHabitIsNotDisplayed(habitName)
         }
     }
 }

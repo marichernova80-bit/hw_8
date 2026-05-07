@@ -1,0 +1,43 @@
+--------- beginning of main
+05-08 01:27:46.997 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:27:46.999 12304 12325 I KASPRESSO: Logcat buffer may be dumped from 05-08 01:27:46.997
+05-08 01:27:47.139 12304 12325 I KASPRESSO: Starting video recording: Video_HabitBaseTests.mp4
+05-08 01:27:47.139 12304 12325 I KASPRESSO: Waiting for 3000 ms
+05-08 01:27:47.229 12304 12364 D KASPRESSO: Display resolution: 1080x2209; supported codec resolution: 2048x2048
+05-08 01:27:47.229 12304 12364 D KASPRESSO: Starting video recording with resolution 1080x2048
+05-08 01:27:50.142 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:27:50.142 12304 12325 I KASPRESSO: BEFORE TEST SECTION
+05-08 01:27:50.142 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:27:50.144 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:27:50.144 12304 12325 I KASPRESSO: TEST SECTION
+05-08 01:27:50.144 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:27:50.145 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:27:50.145 12304 12325 I KASPRESSO: TEST STEP: "1. Пропустить онбординг, если он отображается" in HabitBaseTests
+05-08 01:27:50.186 12304 12304 I KASPRESSO: single click on AppCompatImageButton(id=skip;desc=SKIP;)
+05-08 01:27:51.516 12304 12325 I KASPRESSO: TEST STEP: "1. Пропустить онбординг, если он отображается" in HabitBaseTests SUCCEED. It took 0 minutes, 1 seconds and 371 millis. 
+05-08 01:27:51.516 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:27:51.706 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test1_CreateHabit/HabitBaseTests_step_1.png
+05-08 01:27:51.706 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:27:51.706 12304 12325 I KASPRESSO: TEST STEP: "2. Создать и сохранить привычку" in HabitBaseTests
+05-08 01:27:52.520 12304 12304 I KASPRESSO: single click on ActionMenuItemView(id=actionCreateHabit;desc=Add habit;)
+05-08 01:27:53.918 12304 12304 I KASPRESSO: single click on LinearLayout(id=buttonYesNo;)
+05-08 01:27:56.274 12304 12304 I KASPRESSO: type text(Test Habit) on AppCompatEditText(id=nameInput;hint=e.g. Exercise;)
+05-08 01:27:58.591 12304 12304 I KASPRESSO: single click on MaterialButton(id=buttonSave;text=Save;)
+05-08 01:28:00.913 12304 12325 I KASPRESSO: TEST STEP: "2. Создать и сохранить привычку" in HabitBaseTests SUCCEED. It took 0 minutes, 9 seconds and 207 millis. 
+05-08 01:28:00.917 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:01.156 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test1_CreateHabit/HabitBaseTests_step_2.png
+05-08 01:28:01.156 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:01.156 12304 12325 I KASPRESSO: TEST STEP: "3. Проверить, что привычка отображается в списке" in HabitBaseTests
+05-08 01:28:01.171 12304 12304 I KASPRESSO: scroll RecyclerView to: holder with view: (0th view with: ((view is an instance of android.view.ViewGroup and has descendant matching (an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit")))) on HabitCardListView(resource id not found;)
+05-08 01:28:01.273 12304 12304 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Test Habit" on TextView(resource id not found;text=Test Habit;)
+05-08 01:28:01.288 12304 12304 I KASPRESSO: Check (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle) on CheckmarkPanelView(resource id not found;)
+05-08 01:28:01.289 12304 12325 I KASPRESSO: TEST STEP: "3. Проверить, что привычка отображается в списке" in HabitBaseTests SUCCEED. It took 0 minutes, 0 seconds and 133 millis. 
+05-08 01:28:01.289 12304 12325 I KASPRESSO: ___________________________________________________________________________
+05-08 01:28:01.499 12304 12325 I KASPRESSO: Screenshot saved to /data/user/0/org.isoron.uhabits/files/screenshots/org.isoron.uhabits.HabitBaseTests/test1_CreateHabit/HabitBaseTests_step_3.png
+05-08 01:28:01.499 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:01.499 12304 12325 I KASPRESSO: AFTER TEST SECTION
+05-08 01:28:01.499 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:01.500 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:01.500 12304 12325 I KASPRESSO: TEST PASSED
+05-08 01:28:01.500 12304 12325 I KASPRESSO: ---------------------------------------------------------------------------
+05-08 01:28:01.501 12304 12325 I KASPRESSO: Dump logcat buffer to /data/user/0/org.isoron.uhabits/files/logcat/org.isoron.uhabits.HabitBaseTests/test1_CreateHabit/TestLogcat.txt: logcat -b default -d -t "05-08 01:27:46.997" -s "KASPRESSO","KASPRESSO_TEST"
